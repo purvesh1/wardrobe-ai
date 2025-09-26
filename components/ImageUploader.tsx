@@ -100,6 +100,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload }) => {
         <Button
           type="button"
           size="sm"
+          variant="sunset"
           onClick={(event) => {
             event.preventDefault();
             event.stopPropagation();

@@ -20,15 +20,6 @@ const Header: React.FC = () => {
             </p>
           </div>
         </div>
-        <Button size="sm" asChild>
-          <a
-            href="https://ai.studio/apps/drive/1aO0vXmOMHF-JUpDVLNhmxFG77i2cTyr9"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Open in AI Studio
-          </a>
-        </Button>
       </div>
     </header>
   );
