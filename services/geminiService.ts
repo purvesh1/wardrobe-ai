@@ -2,8 +2,6 @@ import { GoogleGenAI, Type } from "@google/genai";
 import type { IdentifiedItem } from '../types';
 import { GEMINI_API_KEY } from '@/lib/env';
 
-const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
-
 const prompt = `
 You are "Wardrobe AI," a sophisticated fashion expert. Your task is to analyze the user-provided image and identify the distinct clothing items and accessories being worn.
 
@@ -30,6 +28,10 @@ const responseSchema = {
 
 
 export const analyzeOutfit = async (base64Image: string, mimeType: string): Promise<IdentifiedItem[]> => {
+  if (!GEMINI_API_KEY) {
+    throw new Error('Gemini API key missing. Set VITE_GEMINI_API_KEY in your environment.');
+  }
+
   const imagePart = {
     inlineData: {
       data: base64Image,
@@ -42,6 +44,7 @@ export const analyzeOutfit = async (base64Image: string, mimeType: string): Prom
   };
 
   try {
+    const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: { parts: [imagePart, textPart] },

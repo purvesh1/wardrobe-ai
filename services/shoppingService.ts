@@ -5,7 +5,7 @@ const API_ENDPOINT = 'https://www.googleapis.com/customsearch/v1';
 
 export const findSimilarItems = async (query: string): Promise<ShoppingSuggestion[]> => {
   if (!GOOGLE_API_KEY || !SEARCH_ENGINE_ID) {
-    const errorMessage = "Google API Key or Search Engine ID is not configured in secrets.ts. Please ensure the file exists and contains your credentials.";
+    const errorMessage = "Google API Key or Search Engine ID is not configured. Set VITE_GOOGLE_API_KEY and VITE_SEARCH_ENGINE_ID in your environment.";
     console.error(errorMessage);
     throw new Error(errorMessage);
   }
