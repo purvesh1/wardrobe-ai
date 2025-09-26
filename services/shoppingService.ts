@@ -1,5 +1,5 @@
 import type { ShoppingSuggestion } from '../types';
-import { GOOGLE_API_KEY, SEARCH_ENGINE_ID } from '../secrets';
+import { GOOGLE_API_KEY, SEARCH_ENGINE_ID } from '@/lib/env';
 
 const API_ENDPOINT = 'https://www.googleapis.com/customsearch/v1';
 

@@ -1,11 +1,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import type { IdentifiedItem } from '../types';
+import { GEMINI_API_KEY } from '@/lib/env';
 
-if (!process.env.API_KEY) {
-  throw new Error("API_KEY environment variable not set");
-}
-
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
 const prompt = `
 You are "Wardrobe AI," a sophisticated fashion expert. Your task is to analyze the user-provided image and identify the distinct clothing items and accessories being worn.
