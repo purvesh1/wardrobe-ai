@@ -1,0 +1,5 @@
+{
+  "name": "Wardrobe AI",
+  "description": "An AI-powered fashion discovery app. Snap a photo of an outfit, and instantly get shoppable links for similar items. It bridges the gap between inspiration and ownership.",
+  "requestFramePermissions": []
+}
