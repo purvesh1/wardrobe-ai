@@ -20,6 +20,9 @@ const layoutCopy = {
   ],
 };
 
+const BACKGROUND_IMAGE_URL =
+  'https://www.miamiandbeaches.com/getmedia/f693568a-189f-45f6-8016-324ef2067e1f/Vintage-Shopping-House-of-Findings-1440x900.jpg';
+
 type AppState = 'idle' | 'loading' | 'results' | 'error';
 
 const App: React.FC = () => {
@@ -160,22 +163,33 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-rose-50 to-orange-100 text-foreground">
-      <Header />
-      <main className="container mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 px-4 py-12 sm:py-16">
-        <div className="space-y-3 text-center">
-          <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-            Wardrobe AI
-          </h1>
-          <p className="mx-auto max-w-2xl text-base text-foreground/80 sm:text-lg">
-            Upload a look you love. We identify the standout pieces and surface shoppable suggestions powered by Gemini and Google Custom Search.
-          </p>
-        </div>
-        {renderContent()}
-      </main>
-      <footer className="border-t border-orange-200/60 bg-orange-50/80 py-6 text-center text-xs text-foreground/70">
-        Wardrobe AI © 2025
-      </footer>
+    <div className="relative min-h-screen overflow-hidden text-foreground">
+      <div className="pointer-events-none absolute inset-0">
+        <img
+          src={BACKGROUND_IMAGE_URL}
+          alt="Decorative fashion backdrop"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-amber-50/80 to-rose-100/70 backdrop-blur-sm" />
+      </div>
+
+      <div className="relative z-10 flex min-h-screen flex-col">
+        <Header />
+        <main className="container mx-auto flex w-full max-w-5xl flex-1 flex-col gap-12 px-4 py-12 sm:py-16">
+          <div className="space-y-3 text-center">
+            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+              Wardrobe AI
+            </h1>
+            <p className="mx-auto max-w-2xl text-base text-foreground/80 sm:text-lg">
+              Upload a look you love. We identify the standout pieces and surface shoppable suggestions powered by Gemini and Google Custom Search.
+            </p>
+          </div>
+          {renderContent()}
+        </main>
+        <footer className="border-t border-orange-200/60 bg-orange-50/80 py-6 text-center text-xs text-foreground/70">
+          Wardrobe AI © 2025
+        </footer>
+      </div>
     </div>
   );
 };
